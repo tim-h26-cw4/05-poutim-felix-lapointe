@@ -25,6 +25,6 @@ export default class Chef {
   }
 
   sendOrder() {
-    console.log("Where's my order you DONUT!!!");
+    //console.log("Where's my order you DONUT!!!");
   }
 }
