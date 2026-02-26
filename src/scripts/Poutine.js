@@ -8,40 +8,29 @@ export default class Poutine {
 
   init() {
     for (let i = 0; i < this.types.length; i++) {
-      const button = this.types[i];
-      button.addEventListener('click', this.selectType.bind(this));
+      const type = this.types[i];
+      type.addEventListener('click', this.selectType.bind(this));
     }
   }
 
-  selectType(e) {
-    let isRetourEtatNormal = false;
-
+  selectType(event) {
+    //console.log("Where's the lamb sauce???");
     for (let i = 0; i < this.types.length; i++) {
-      const button = this.types[i];
-
-      if (
-        e.currentTarget.classList.contains('is-active') &&
-        isRetourEtatNormal != true
-      ) {
-        button.classList.remove('is-active');
-
-        this.selectedType = '';
-        isRetourEtatNormal = !isRetourEtatNormal;
-        this.updatePhoto();
-      } else {
-        button.classList.remove('is-active');
-      }
+      const type = this.types[i];
+      type.classList.remove('is-active');
     }
 
-    if (isRetourEtatNormal == false) {
-      e.currentTarget.classList.add('is-active');
-      this.selectedType = e.currentTarget.innerText;
+    const btnClick = event.currentTarget;
+    btnClick.classList.add('is-active');
 
-      this.updatePhoto();
-    }
+    this.selectedType = btnClick.textContent;
+    this.updatePhoto();
   }
 
   updatePhoto() {
-    console.log('Interesting!!!');
+    //console.log('MAMA!!!!!!!');
+    const freshness = document.querySelector('.poutine__image');
+    freshness.classList.add('is-active');
+    freshness.src = `assets/images/${this.selectedType}.png`;
   }
 }
