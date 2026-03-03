@@ -17,13 +17,15 @@ export default class Poutine {
     //console.log("Where's the lamb sauce???");
     for (let i = 0; i < this.types.length; i++) {
       const type = this.types[i];
-      type.classList.remove('is-active');
+      if (type.classList.contains('is-active')) {
+        type.classList.remove('is-active');
+      }
     }
+    const btnClicked = event.currentTarget;
+    btnClicked.classList.add('is-active');
 
-    const btnClick = event.currentTarget;
-    btnClick.classList.add('is-active');
-
-    this.selectedType = btnClick.textContent;
+    this.selectedType = btnClicked.textContent;
+    console.log(this.selectedType);
     this.updatePhoto();
   }
 
