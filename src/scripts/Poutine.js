@@ -1,7 +1,7 @@
 export default class Poutine {
   constructor(element) {
     this.element = element;
-    this.types = document.querySelectorAll('.button');
+    this.types = this.element.querySelectorAll('.button');
     this.selectedType = '';
     this.init();
   }
@@ -31,8 +31,8 @@ export default class Poutine {
 
   updatePhoto() {
     //console.log('MAMA!!!!!!!');
-    const freshness = document.querySelector('.poutine__image');
-    freshness.classList.add('is-active');
-    freshness.src = `assets/images/${this.selectedType}.png`;
+    const img = this.element.querySelector('.poutine__image');
+    img.classList.add('is-active');
+    img.src = `assets/images/${this.selectedType}.png`;
   }
 }
